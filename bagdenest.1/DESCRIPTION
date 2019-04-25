@@ -1,0 +1,10 @@
+Package: bagdenest
+Type: Package
+Title: Bagging of Density Estimators
+Version: 0.1.0
+Author: Mathias Bourel
+Maintainer: Jairo Cugliari <Jairo.Cugliari@univ-lyon2.fr>
+Description: density estimators by averaging classical density estimators.
+License: What license is it under?
+Encoding: 
+LazyData: true
