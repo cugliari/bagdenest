@@ -8,3 +8,4 @@ Description: density estimators by averaging classical density estimators.
 License: What license is it under?
 Encoding: 
 LazyData: true
+RoxygenNote: 6.1.1
