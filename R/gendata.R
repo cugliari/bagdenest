@@ -6,6 +6,8 @@
 #' @export
 gendata= function(nummodel = 1, n = 100)
 {
+  library(benchden)
+  library(nor1mix)
   #NORMALE STANDARD
   if(nummodel == 1)	{
     train <- rnorm(n)

@@ -23,7 +23,7 @@ AgregHist.err = function(xx,grille=aa,nbr = 50, B= 10,dobs,alpha=1) {
     if(min(newb) > mx) newb= c(mx,newb)
     if(max(newb) < Mx) newb= c(newb, Mx)
     hs2=hist(xx,breaks=newb,plot=F,warn.unused = F)
-    fin= fin + predict.hist(hs2,grille)
+    fin= fin + predicthist(hs2,grille)
     previ=fin/i
     err00=rbind(err00,error(dobs,previ))
     #if(i%%20 == 0) cat(i,">>")

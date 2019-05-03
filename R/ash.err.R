@@ -17,7 +17,7 @@ ash.err = function(xx,aa,nbr, B= 10,dobs) {
   err0=NULL
   for (i in 1:B){
     hh=hist(xx,breaks=c(mx-0.5,s+(i-1)*h/B,Mx+0.5),plot=F,warn.unused = F)
-    pred=pred+predict.hist(hh,sort(aa))
+    pred=pred+predicthist(hh,sort(aa))
     predi=pred/i
     err0=rbind(err0,error(dobs,predi))
   }

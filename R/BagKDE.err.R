@@ -8,6 +8,7 @@
 #' @return  prevision and prevision error
 #' @export
 BagKDE.err = function(xx,grille=aa,B= 10,dobs) {
+  library(ks)
   # xx	data vector
   # grille	grid for density evaluation
   # B		number of histograms to aggregate

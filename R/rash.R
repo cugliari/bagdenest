@@ -1,16 +1,14 @@
-#' Title  prevision and prevision error
+#' Title  Prevision acording to rash
 #'
-#' @param xx data vector
+#' @param xx  data vector
 #' @param grille grid for density evaluation
 #' @param nbr number of break sfor histogram
 #' @param B number of histograms to aggregate
-#' @param dobs observation
 #'
-#' @return  prevision and prevision error
+#' @return Prevision
 #' @export
-rash.err = function(xx,grille=aa,nbr = 50, B= 10,dobs) {
+rash = function(xx,grille=aa,nbr = 50, B=10) {
   fin = 0
-  err00=NULL
   zz = hist(xx,breaks=mybreaks(xx,nbr),plot=F,warn.unused = F)$breaks
   mx = min(xx)
   Mx = max(xx)
@@ -23,10 +21,6 @@ rash.err = function(xx,grille=aa,nbr = 50, B= 10,dobs) {
     if(max(newb) < Mx) newb= c(newb, Mx)
     hs2=hist(xx,breaks=newb,plot=F,warn.unused = F)
     fin= fin + predicthist(hs2,grille)
-    previ=fin/i
-    err00=rbind(err00,error(dobs,previ))
-    #		if(i%%20 == 0) cat(i,">>")
   }
-  #	cat("\n")
-  list(prev=fin/B,erreur=err00)
+  fin/B
 }

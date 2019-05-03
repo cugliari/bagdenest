@@ -19,7 +19,7 @@ BagHist.err = function(xx,grille=aa,B= 10,dobs) {
     xb = xx[sample(n,replace=T)]
     nbr=bropt(xb)$opt
     hs2=hist(xb,breaks=mybreaks(xb,nbr),plot=F,warn.unused = F)
-    fin= fin + predict.hist(hs2,grille)
+    fin= fin + predicthist(hs2,grille)
     previ=fin/i
     err00=rbind(err00,error(dobs,previ))
     #if(i%%20 == 0) cat(i,">>")

@@ -29,7 +29,7 @@ BagHistfp.err = function(xx,grille=aa, B= 10,dobs) {
     d <- c(0, hs2$density, 0)
     fin  = fin  + approxfun(x = m, y = d, yright = 0, yleft = 0)(grille)
 
-    fin2=fin2+ predict.hist(hs,grille)
+    fin2=fin2+ predicthist(hs,grille)
     previ=fin/i
     previ2=fin2/i
     err00=rbind(err00,error(dobs,previ))

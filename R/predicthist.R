@@ -1,0 +1,13 @@
+#' Title ?????
+#'
+#' @param hh ????
+#' @param x ?????
+#'
+#' @return ??????
+#' @export
+predicthist = function(hh,x)	{
+  res=NULL
+  for(i in 1:length(x))
+    res[i] = predicthistx(hh,x[i])
+  res
+}
