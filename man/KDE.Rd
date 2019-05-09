@@ -2,7 +2,7 @@
 % Please edit documentation in R/KDE.R
 \name{KDE}
 \alias{KDE}
-\title{Title  ????}
+\title{Title  prevision according to KDE}
 \usage{
 KDE(dlearn, dtest, w = NULL, h = 0.1)
 }
@@ -11,13 +11,13 @@ KDE(dlearn, dtest, w = NULL, h = 0.1)
 
 \item{dtest}{test sample}
 
-\item{w}{?????}
+\item{w}{????}
 
-\item{h}{????}
+\item{h}{step}
 }
 \value{
-?????
+prvision
 }
 \description{
-Title  ????
+Title  prevision according to KDE
 }

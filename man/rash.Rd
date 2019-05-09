@@ -4,12 +4,12 @@
 \alias{rash}
 \title{Title  Prevision acording to rash}
 \usage{
-rash(xx, grille = aa, nbr = 50, B = 10)
+rash(xx, grid, nbr = 50, B = 10)
 }
 \arguments{
 \item{xx}{data vector}
 
-\item{grille}{grid for density evaluation}
+\item{grid}{grid}
 
 \item{nbr}{number of break sfor histogram}
 

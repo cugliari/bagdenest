@@ -1,13 +1,14 @@
-#' Title  ???????
+#' Title  prevision and prevision error according to AgregHistunif
 #'
 #' @param xx  data vector
-#' @param grille grid for density evaluation
 #' @param nbr number of break sfor histogram
 #' @param B number of histograms to aggregate
+#' @param grid  grid
 #'
-#' @return ??????
+#' @return  prevision
 #' @export
-AgregHistunif = function(xx,grille=aa,nbr = 50, B=10) {
+#' @import graphics
+AgregHistunif = function(xx,grid,nbr = 50, B=10) {
   # xx	data vector
   # grille	grid for density evaluation
   # br	number of break sfor histogram
@@ -27,7 +28,7 @@ AgregHistunif = function(xx,grille=aa,nbr = 50, B=10) {
     #if(min(newb) > mx) newb= c(mx,newb)
     #if(max(newb) < Mx) newb= c(newb, Mx)
     hs2=hist(xx,breaks=c(mx,newb,Mx),plot=F,warn.unused = F)
-    fin= fin + predicthist(hs2,grille)
+    fin= fin + predict_hist(hs2,grid)
     #if(i%%20 == 0) cat(i,">>")
   }
   #cat("\n")

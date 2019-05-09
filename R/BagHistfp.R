@@ -1,12 +1,13 @@
 #' Title prevision and prevision acording to BagHistfp
 #'
 #' @param xx data vector
-#' @param grille grid for density evaluation
 #' @param B number of histograms to aggregate
+#' @param grid grid
 #'
-#' @return prevision and prevision
+#' @return prevision
 #' @export
-BagHistfp = function(xx,grille=aa, B= 10) {
+#' @import graphics
+BagHistfp = function(xx,grid, B= 10) {
 
   n = length(xx)
   fin = 0
@@ -21,8 +22,8 @@ BagHistfp = function(xx,grille=aa, B= 10) {
     h <- m[2] - m[1]
     m <- c(m[1] - h, m, m[length(m)] + h)
     d <- c(0, hs2$density, 0)
-    fin  = fin  + approxfun(x = m, y = d, yright = 0, yleft = 0)(grille)
-    fin2 = fin2 + predicthist(hs,grille)
+    fin  = fin  + approxfun(x = m, y = d, yright = 0, yleft = 0)(grid)
+    fin2 = fin2 + predict_hist(hs,grid)
   }
 
   list(bhfp=fin/B,bh=fin2/B)

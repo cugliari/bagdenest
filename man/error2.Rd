@@ -2,7 +2,7 @@
 % Please edit documentation in R/error2.R
 \name{error2}
 \alias{error2}
-\title{Title ??????}
+\title{Title error2}
 \usage{
 error2(obs, prev)
 }
@@ -12,8 +12,8 @@ error2(obs, prev)
 \item{prev}{prevision}
 }
 \value{
-?????
+an error value
 }
 \description{
-Title ??????
+Title error2
 }

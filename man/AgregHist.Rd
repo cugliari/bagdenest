@@ -2,22 +2,24 @@
 % Please edit documentation in R/AgregHist.R
 \name{AgregHist}
 \alias{AgregHist}
-\title{Title  ???????}
+\title{Title  prevision and prevision error according to AgregHist}
 \usage{
-AgregHist(xx, grille = aa, nbr = 50, B = 10, alpha = 1)
+AgregHist(xx, grid, nbr = 50, B = 10, alpha = 1)
 }
 \arguments{
 \item{xx}{data vector}
 
-\item{grille}{grid for density evaluation}
+\item{grid}{grid}
+
+\item{nbr}{number of break sfor histogram}
 
 \item{B}{number of histograms to aggregate}
 
 \item{alpha}{disturbance parametter}
 }
 \value{
-????
+prevision
 }
 \description{
-Title  ???????
+Title  prevision and prevision error according to AgregHist
 }

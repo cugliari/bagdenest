@@ -3,6 +3,10 @@
 
 ###Actualis? le 13/2/14 par Mathias
 
+#'@import ks
+#'@import rpart
+
+
 ind=function(x,a,b)  {
   # returns an indicator value for w being in ]a,b]
   ifelse(x > a & x <= b, 1,0)
@@ -134,9 +138,9 @@ error = function(obs,prev)	{
 
 ##Grille pour Histogramme greedy
 
-grille=function(x,leaf=10){
+grid=function(x,leaf=10){
 
-  h=eval.greedy(as.matrix(x),leaf)
+  h=delt::eval.greedy(as.matrix(x),leaf)
   sp=as.vector(h$split)
   sp=sp[which (sp>0)]
   sort(sp)
@@ -159,7 +163,7 @@ mybreaks = function(x = rnorm(100),nbr)
 }
 
 
-predicthistx = function(hh,x1)	{
+predict_hist_x = function(hh,x1)	{
   breaks = hh$breaks
   intens = hh$density
   lims = breaks[length(breaks)]
@@ -174,15 +178,15 @@ predicthistx = function(hh,x1)	{
   res
 }
 
-predicthist = function(hh,x)	{
+predict_hist = function(hh,x)	{
   res=NULL
   for(i in 1:length(x))
-    res[i] = predicthistx(hh,x[i])
+    res[i] = predict_hist_x(hh,x[i])
   res
 }
 
 
-rash.var = function(xx, grille,
+rash_var = function(xx, grid,
                     nbr = 50, B = 10, alpha = 0.05) {
   # xx  data vector
   # grille  grid for density evaluation
@@ -215,9 +219,9 @@ rash.var = function(xx, grille,
 
 
 
-rashgreedy = function(xx,grille=aa,nbr = 50, B=10) {
+rashgreedy = function(xx,grid,nbr = 50, B=10) {
   fin = 0
-  zz=hist(xx,breaks=grille(xx,nbr),plot=F,warn.unused = F)$breaks
+  zz=hist(xx,breaks=grid(xx,nbr),plot=F,warn.unused = F)$breaks
   mx = min(xx)
   Mx = max(xx)
   for(i in 1:B)
@@ -231,7 +235,7 @@ rashgreedy = function(xx,grille=aa,nbr = 50, B=10) {
     if(min(newb) > mx) newb= c(mx,newb)
     if(max(newb) < Mx) newb= c(newb, Mx)
     hs2=hist(xx,breaks=newb,plot=F,warn.unused = F)
-    fin= fin + predicthist(hs2,grille)
+    fin= fin + predict_hist(hs2,grid)
     #if(i%%20 == 0) cat(i,">>")
   }
   #cat("\n")
@@ -240,7 +244,7 @@ rashgreedy = function(xx,grille=aa,nbr = 50, B=10) {
 
 
 
-rashcart = function(xx,grille=aa,B=10) {
+rashcart = function(xx,grid,B=10) {
   fin = 0
   d=data.frame(xx)
   yy=xx
@@ -260,7 +264,7 @@ rashcart = function(xx,grille=aa,B=10) {
     if(min(newb) > mx) newb= c(mx,newb)
     if(max(newb) < Mx) newb= c(newb, Mx)
     hs2=hist(xx,breaks=newb,plot=F,warn.unused = F)
-    fin= fin + predicthist(hs2,grille)
+    fin= fin + predict_hist(hs2,grid)
     #if(i%%20 == 0) cat(i,">>")
   }
   #cat("\n")
@@ -280,7 +284,7 @@ avshift=function(xx,aa,nbr,M){
   pred=0
   for (i in 1:M){
     hh=hist(xx,breaks=c(mx-0.5,s+(i-1)*h/M,Mx+0.5),plot=F,warn.unused = F)
-    pred=pred+predicthist(hh,sort(aa))
+    pred=pred+predict_hist(hh,sort(aa))
   }
   pred=pred/M
 }
@@ -306,7 +310,7 @@ samarov = function(xx,aa,B=10,alpha=1) {
       if(min(newb) > mx) newb= c(mx,newb)
       if(max(newb) < Mx) newb= c(newb, Mx)
       hs2=hist(xx,breaks=newb,plot=F,warn.unused = F)
-      je=-2/(length(aa))*sum(predicthist(hs2,aa))+sintegral(sort(aa),(hs2$intensities[order(aa)])^2)
+      je=-2/(length(aa))*sum(predict_hist(hs2,aa))+sintegral(sort(aa),(hs2$intensities[order(aa)])^2)
       if (je<jmin) {
         jmin=je
         bropt=newb
@@ -316,7 +320,7 @@ samarov = function(xx,aa,B=10,alpha=1) {
   }
   #cat("\n")
   histsam=hist(xx,breaks=bropt,plot=F,warn.unused = F)
-  predsam=predicthist(histsam,aa)
+  predsam=predict_hist(histsam,aa)
   list(bropt=bropt,jmin=jmin,predsam=predsam)
 }
 
@@ -325,25 +329,22 @@ samarov = function(xx,aa,B=10,alpha=1) {
 #Fontions de Kde
 ###############
 
-onekdenrd = function(xx,grille=aa) {
-  library(ks)
+onekdenrd = function(xx,grid) {
   # xx	data vector
   # grille	grid for density evaluation
-  kde(xx,bw.nrd(xx),eval.points=grille)$estimate
+  ks::kde(xx,bw.nrd(xx),eval.points=grid)$estimate
 }
 
-onekdenrd0 = function(xx,grille=aa) {
-  library(ks)
+onekdenrd0 = function(xx,grid) {
   # xx	data vector
   # grille	grid for density evaluation
-  kde(xx,h=bw.nrd0(xx),eval.points=grille)$estimate
+  ks::kde(xx,h=bw.nrd0(xx),eval.points=grid)$estimate
 }
 
-onekdesj = function(xx,grille=aa) {
-  library(ks)
+onekdesj = function(xx,grid) {
   # xx	data vector
   # grille	grid for density evaluation
-  kde(xx,h=bw.SJ(xx),eval.points=grille)$estimate
+  ks::kde(xx,h=bw.SJ(xx),eval.points=grid)$estimate
 }
 
 
@@ -354,7 +355,6 @@ ind2=function(x,a,b)  {
 }
 
 ajustkde=function(numodel=1,n=1000,B=10,test=T)	{
-  library(ks)
   # trace les evaluations de kde construits sur echantillon bootstrap
   # l'evaluaion trac?e peut etre celle de l'ech test ou de l'echantillon d'appe
   dd=gendata(numodel,n)
@@ -363,7 +363,7 @@ ajustkde=function(numodel=1,n=1000,B=10,test=T)	{
   A=matrix(NA,nrow=length(xtest),ncol=B)
   for (i in 1:B)	{
     db= xx[sample(n,replace=T)]
-    A[,i]= kde(db,bw.nrd(db),eval.points=xtest)$estimate
+    A[,i]= ks::kde(db,bw.nrd(db),eval.points=xtest)$estimate
   }
   matplot(xtest,A,type="l")
   points(xtest,kde(xx,bw.nrd(xx),eval.points=xtest)$estimate ,type="l",lwd=2)
@@ -375,7 +375,6 @@ ajustkde=function(numodel=1,n=1000,B=10,test=T)	{
 ################################
 
 genereA = function(x,H=c(.1,.2,.3,.1,.2,.3),V=10){
-  library(ks)
   # genere la matrice de fhat(E_{-v},E_v) par validation crois?e
   L = length(H)
   N = length(x)
@@ -388,7 +387,7 @@ genereA = function(x,H=c(.1,.2,.3,.1,.2,.3),V=10){
   for(l in 1:3)
     for(v in 1:V)		{
       bloque = which(indices ==v)
-      kk=kde(x[-bloque],h=H[l],eval.points=x[bloque])
+      kk=ks::kde(x[-bloque],h=H[l],eval.points=x[bloque])
       A[bloque,l] = kk$estimate
     }
   for(l in 4:6)
@@ -402,7 +401,6 @@ genereA = function(x,H=c(.1,.2,.3,.1,.2,.3),V=10){
 
 
 genereB = function(x,xtest=NULL,H=c(.1,.2,.3,.1,.2,.3)){
-  library(ks)
   # genere la matrice des densit?s estim?es sur l'?chantillon d'apprentissage
   # ou sur un echantillon test
   L = length(H)
@@ -410,7 +408,7 @@ genereB = function(x,xtest=NULL,H=c(.1,.2,.3,.1,.2,.3)){
   N = length(xtest)
   A = matrix(NA,nrow=N,ncol=L)
   for(l in 1:3)	{
-    kk=kde(x,h=H[l],eval.points=xtest)
+    kk=ks::kde(x,h=H[l],eval.points=xtest)
     A[,l] = kk$estimate
   }
   for(l in 4:6)	{
@@ -454,7 +452,7 @@ estimalpha = function(A,eps=0.0001,itermax=3000)
 }
 
 
-stack.dens = function(don=rnorm(1000),xtest=NULL,pl=F,H=c(.1,.2,.3,.1,.2,.3),V=10,eps=0.0001,itermax=3000)
+stack_dens = function(don=rnorm(1000),xtest=NULL,pl=F,H=c(.1,.2,.3,.1,.2,.3),V=10,eps=0.0001,itermax=3000)
 {
 
 
@@ -502,7 +500,7 @@ genereAh = function(x,H=c(5,10,20,30,40,50),V=10){
     for(v in 1:V)	{
       bloque = which(indices ==v)
       kk=hist(x[-bloque],breaks=mybreaks(x[-bloque],H[l]),plot=F,warn.unused = F)
-      A[bloque,l] = predicthist(kk,x[bloque])
+      A[bloque,l] = predict_hist(kk,x[bloque])
     }
   A
 }
@@ -520,7 +518,7 @@ genereBh = function(x,xtest=NULL,H=c(5,10,20,30,40,50))
   A = matrix(NA,nrow=N,ncol=L)
   for(l in 1:L)	{
     kk=hist(x,breaks=mybreaks(x,H[l]),plot=F,warn.unused = F)
-    A[,l] = predicthist(kk,xtest)
+    A[,l] = predict_hist(kk,xtest)
   }
   A
 }
@@ -560,7 +558,7 @@ estimalpha = function(A,eps=0.0001,itermax=3000)
 }
 
 
-stack.denshist = function(don=rnorm(1000),xtest=NULL,pl=F,H=c(5,10,20,30,40,50),V=10,eps=0.0001,itermax=3000)
+stack_denshist = function(don=rnorm(1000),xtest=NULL,pl=F,H=c(5,10,20,30,40,50),V=10,eps=0.0001,itermax=3000)
 {
   mat = genereAh(don,H,V)
   toto = estimalpha(mat,eps=eps,itermax=itermax)
@@ -656,5 +654,168 @@ boostkde = function(xlearn,xtest,K=10,h=bw.nrd(xlearn),eps=0.0001)
   res /norm
 }
 
+############################################################################
+###SIMULATIONS
+############################################################################
 
 
+
+
+
+riskhist <- function(obs, m, xlim = c(0, 1)) {
+  obs01  <- (obs - xlim[1]) / (xlim[2] - xlim[1])
+  h      <- 1 / m
+  n      <- length(obs)
+  breaks <- seq(0, 1, length.out = m + 1)
+  p_hat  <- hist(obs01, plot = FALSE, breaks = breaks, warn.unused = F)$counts / n
+
+  res <- 2 / h / (n - 1) - (n + 1) / (n - 1) / h * sum(p_hat^2)
+  return(res) #(m * sum(p_hat^2))
+}
+
+riskfp <- function(obs, m, xlim = c(0, 1)) {
+  obs01  <- (obs - xlim[1]) / (xlim[2] - xlim[1])
+  h      <- 1 / m
+  n      <- length(obs)
+  breaks <- seq(0, 1, length.out = m + 1)
+  p_hat  <- hist(obs01, plot = FALSE, breaks = breaks,warn.unused = F)$counts #/ n
+
+  vs <- cbind(c(0, 0, p_hat), c(0, - 2 * p_hat, 0), c(p_hat, 0, 0))
+
+  res <- 271 / (480 * n * h) + 49 / (2880 * n^2 * h) * sum(rowSums(vs)^2)
+  return(res) #(m * sum(p_hat^2))
+}
+
+broptfp = function(x){
+  Mgrid <-  2:(5 * floor(sqrt(length(x)))) #2:200 modified to reduce computational burden
+  J     <- numeric(length(Mgrid))
+  for (m in seq_along(Mgrid)) {
+    J[m] <- riskfp(obs = x, Mgrid[m], xlim = c(min(x) - 0.5, max(x) + 0.5))
+  }
+  #  plot.ts(Mgrid, J);  abline(v = Mgrid[which.min(J)], col = "red")
+  list(opt = max(5, Mgrid[which.min(J)]))
+}
+
+
+baseboot <- function(x, punctual, bunch, conf = c(0.05, 0.95), plot = FALSE){
+
+  err <- apply(bunch, 1, '-', punctual)
+  CI  <- apply(err, 1, quantile, probs = conf)
+
+  Linf <- punctual + CI[1, ]
+  Lsup <- punctual + CI[2, ]
+
+  if(plot) plotbunch(x, punctual, t(bunch), Linf, Lsup)
+
+  return(rbind(Linf, Lsup))
+}
+
+cteboot <- function(x, punctual, bunch, conf = c(0.05, 0.95), plot = FALSE){
+
+  err <- apply(bunch, 1, '-', punctual)
+  Mb  <- apply(abs(err), 1, max)
+
+  M   <- quantile(Mb, probs = conf[2] - conf[1])
+
+  Linf <- pmax(punctual - M, 0)
+  Lsup <- punctual + M
+
+  if(plot) plotbunch(x, punctual, t(bunch), Linf, Lsup)
+
+  return(rbind(Linf, Lsup))
+}
+
+plotbunch <- function(x, punctual, bunch, inf, sup) {
+  matplot(x, bunch, type = 'l', col = "grey", lty = 1, lwd = 2, ylab = '')
+  lines(x, punctual, lwd = 2)
+  lines(x, inf, lwd = 2, lty = 2)
+  lines(x, sup, lwd = 2, lty = 2)
+}
+
+error_tube <- function(target, tube) {
+  coverage <- na.omit(target <= tube[2, ] & target >= tube[1, ]) # is target in tube?
+  width    <- na.omit(tube[2, ] - tube[1, ])
+
+  return(c(mean(coverage), min(width), mean(width), max(width)))
+}
+
+tube_hist <- function(data, nbr = 50, B = 10, conf = c(0.05, 0.95)) {
+  # A chaque etape, on prend un nouveau jeu de donn?es, on construit un
+  # histogramme, on pr?dit et on agr?ge.
+
+  xx <- data$train
+  grid <- data$test
+  n <- length(xx)
+  mat <- matrix(ncol = length(grid), nrow = B)
+
+  for (i in 1:B) {
+    xb  = xx[sample(n, replace = TRUE)]
+    mybreaks <- mybreaks(xb, nbr)
+    hs2 = hist(xb, breaks = mybreaks, plot = FALSE)
+
+    mat[i, ] <- predict_hist(hh = hs2, x = grid)
+  }
+
+  punctual <- colMeans(mat, na.rm = TRUE)
+  tube     <- baseboot(data$test, punctual, mat, conf = conf)
+
+  return(list(punctual = punctual, bunch = mat, tube = tube))
+}
+
+tube_fp <- function(data, nbr = 50, B = 10, conf = c(0.05, 0.95)) {
+  # A chaque etape, on prend un nouveau jeu de donn?es, on construit un
+  # histogramme, on pr?dit et on agr?ge.
+
+  xx <- data$train
+  grid <- data$test
+  n <- length(xx)
+  mat <- matrix(ncol = length(grid), nrow = B)
+
+  for (i in 1:B) {
+    xb  = xx[sample(n, replace = TRUE)]
+    mybreaks <- mybreaks(xb, nbr)
+    hs2 = hist(xb, breaks = mybreaks, plot = FALSE)
+
+    mids <- hs2$mids
+    delta <- diff(mybreaks)[1]
+    # This avoids NA on prediction for test data between the min on grille
+    # and the min obs value on xb
+    newmids <- c(min(mids) - delta, mids, max(mids) + delta)
+
+    mat[i, ] <- approxfun(x = newmids, y = c(0, hs2$density, 0))(grid)
+  }
+
+  # NAs occur when test data falls beyond the FP's support. They may safetly
+  # be replaced by 0s
+  mat[is.na(mat)] <- 0
+
+  punctual <- colMeans(mat, na.rm = TRUE)
+  tube     <- baseboot(data$test, punctual, mat, conf = conf)
+
+  return(list(punctual = punctual, bunch = mat, tube = tube))
+}
+
+tube_KDE <- function(data, nbr = 50, B = 10, conf = c(0.05, 0.95)) {
+  # A chaque etape, on prend un nouveau jeu de donn?es, on construit un
+  # histogramme, on pr?dit et on agr?ge.
+
+  xx <- data$train
+  grid <- data$test
+  n <- length(xx)
+  mat <- matrix(ncol = length(grid), nrow = B)
+
+  for (i in 1:B) {
+    xb  = xx[sample(n, replace = TRUE)]
+    mat[i, ] <- onekdeucv(xx = xb, grid = grid)
+  }
+
+  punctual <- colMeans(mat, na.rm = TRUE)
+  tube     <- baseboot(data$test, punctual, mat, conf = conf)
+
+  # usando la escala raiz  => escala invariante al usar quantiles
+  #  tube     <- baseboot(data$test, sqrt(punctual), sqrt(mat))
+  #  tube[tube < 0] <- 0
+  #  tube <- tube^2
+
+  return(list(punctual = punctual, bunch = mat, tube = tube))
+}

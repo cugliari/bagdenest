@@ -1,9 +1,9 @@
-#' Title ????
+#' Title error
 #'
 #' @param obs  observation
 #' @param prev   Pprevision
 #'
-#' @return ?????
+#' @return an error value
 #' @export
 error = function(obs,prev)	{
   #1) Erreur quadratique (c'est le ISE).

@@ -1,9 +1,9 @@
-#' Title ??????
+#' Title error2
 #'
 #' @param obs observation
 #' @param prev prevision
 #'
-#' @return ?????
+#' @return an error value
 #' @export
 error2 = function(obs,prev)	{
   #1) Erreur quadratique

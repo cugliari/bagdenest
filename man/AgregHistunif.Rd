@@ -2,22 +2,22 @@
 % Please edit documentation in R/AgregHistunif.R
 \name{AgregHistunif}
 \alias{AgregHistunif}
-\title{Title  ???????}
+\title{Title  prevision and prevision error according to AgregHistunif}
 \usage{
-AgregHistunif(xx, grille = aa, nbr = 50, B = 10)
+AgregHistunif(xx, grid, nbr = 50, B = 10)
 }
 \arguments{
 \item{xx}{data vector}
 
-\item{grille}{grid for density evaluation}
+\item{grid}{grid}
 
 \item{nbr}{number of break sfor histogram}
 
 \item{B}{number of histograms to aggregate}
 }
 \value{
-??????
+prevision
 }
 \description{
-Title  ???????
+Title  prevision and prevision error according to AgregHistunif
 }

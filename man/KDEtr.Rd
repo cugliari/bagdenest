@@ -2,7 +2,7 @@
 % Please edit documentation in R/KDEtr.R
 \name{KDEtr}
 \alias{KDEtr}
-\title{Title ???????}
+\title{Title prevision}
 \usage{
 KDEtr(dlearn, dtest, w = NULL, h = 0.1)
 }
@@ -11,13 +11,13 @@ KDEtr(dlearn, dtest, w = NULL, h = 0.1)
 
 \item{dtest}{test sample}
 
-\item{w}{?????}
+\item{w}{????}
 
-\item{h}{?????}
+\item{h}{step}
 }
 \value{
-?????
+prvision
 }
 \description{
-Title ???????
+Title prevision
 }

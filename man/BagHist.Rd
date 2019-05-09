@@ -4,12 +4,12 @@
 \alias{BagHist}
 \title{Title prevision and prevision error}
 \usage{
-BagHist(xx, grille = aa, B = 10)
+BagHist(xx, grid, B = 10)
 }
 \arguments{
 \item{xx}{data vector}
 
-\item{grille}{grid for density evaluation}
+\item{grid}{grid}
 
 \item{B}{number of histograms to aggregate}
 }

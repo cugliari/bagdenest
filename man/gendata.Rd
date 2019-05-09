@@ -12,7 +12,7 @@ gendata(nummodel = 1, n = 100)
 \item{n}{sample size}
 }
 \value{
-the training set, the test set
+the training s,et, the test set
 }
 \description{
 Title  the Training set, the Test set

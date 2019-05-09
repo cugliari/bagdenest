@@ -2,18 +2,27 @@ Package: bagdenest
 Type: Package
 Title: Bagging of Density Estimators
 Version: 0.1.0
-Author: Mathias Bourel
+Authors@R: c(
+    person("Erwan", "Giry-Fouquet", email = "m_youla@yahoo.fr",role = c("aut", "cre")
+           ),
+    person("Jairo", "Cugliari", email = "jairo.cuglari@univ-lyon2.fr", role = c("aut")
+           ),
+    person("Youla", "Mohamed", email = "m.youla@yahoo.fr" ,role ="aut")
+    )
 Maintainer: Jairo Cugliari <Jairo.Cugliari@univ-lyon2.fr> ,Youla Mohamed <m.youla@yahoo.fr>
 Description: density estimation by averaging classical density estimators such as 
              the histogram, the frequency polygon and the kernel density estimators
              obtained over different bootstrap samples of the original data.
 License: GPL-3
-Encoding: utf-8
+Encoding: UTF-8
 LazyData: true
 RoxygenNote: 6.1.1
 Imports: 
-    ks,
     benchden,
     caTools,
+    ks,
+    nor1mix,
     rpart,
-    nor1mix
+    stats,
+    delt
+    

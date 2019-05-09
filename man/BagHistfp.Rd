@@ -4,17 +4,17 @@
 \alias{BagHistfp}
 \title{Title prevision and prevision acording to BagHistfp}
 \usage{
-BagHistfp(xx, grille = aa, B = 10)
+BagHistfp(xx, grid, B = 10)
 }
 \arguments{
 \item{xx}{data vector}
 
-\item{grille}{grid for density evaluation}
+\item{grid}{grid}
 
 \item{B}{number of histograms to aggregate}
 }
 \value{
-prevision and prevision
+prevision
 }
 \description{
 Title prevision and prevision acording to BagHistfp

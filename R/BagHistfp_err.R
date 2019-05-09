@@ -1,13 +1,14 @@
-#' Title  prevision and prevision error
+#' Title  prevision and prevision error according to BagHistfp.err
 #'
 #' @param xx  data vector
-#' @param grille grid for density evaluation
 #' @param B number of histograms to aggregate
 #' @param dobs observation
+#' @param grid  grid
 #'
 #' @return prevision and prevision error
 #' @export
-BagHistfp.err = function(xx,grille=aa, B= 10,dobs) {
+#' @import graphics
+BagHistfp_err = function(xx,grid, B= 10,dobs) {
   # A chaque etape, on prend un nouveau jeu de donn?es, on construit un histogramme, on pr?dit et on agr?ge.
   #
   n = length(xx)
@@ -27,9 +28,9 @@ BagHistfp.err = function(xx,grille=aa, B= 10,dobs) {
     h <- m[2] - m[1]
     m <- c(m[1] - h, m, m[length(m)] + h)
     d <- c(0, hs2$density, 0)
-    fin  = fin  + approxfun(x = m, y = d, yright = 0, yleft = 0)(grille)
+    fin  = fin  + approxfun(x = m, y = d, yright = 0, yleft = 0)(grid)
 
-    fin2=fin2+ predicthist(hs,grille)
+    fin2=fin2+ predict_hist(hs,grid)
     previ=fin/i
     previ2=fin2/i
     err00=rbind(err00,error(dobs,previ))

@@ -2,12 +2,12 @@
 #' @param nummodel number of the model
 #' @param n sample size
 #'
-#' @return the training set, the test set
+#' @return the training s,et, the test set
+#'
 #' @export
+#' @import stats  nor1mix
 gendata= function(nummodel = 1, n = 100)
 {
-  library(benchden)
-  library(nor1mix)
   #NORMALE STANDARD
   if(nummodel == 1)	{
     train <- rnorm(n)
@@ -87,22 +87,22 @@ gendata= function(nummodel = 1, n = 100)
 
   #CLAW DENSITY . IL FAUT TELECHARGER LE PAQUET BENCHDEN, c'est le numero 23.
   if(nummodel==8) {
-    train = rberdev(n,23)
+    train = benchden::rberdev(n,23)
     minm = min(train)
     maxm = max(train)
-    test = sort(rberdev(n,23))
+    test = sort(benchden::rberdev(n,23))
     test = test[ (test <= maxm) & (test> minm)]
-    dobs = dberdev(test,23)
+    dobs = benchden::dberdev(test,23)
   }
 
   #SMOOTH COMB DENSITY . IL FAUT TELECHARGER LE PAQUET BENCHDEN, c'est le numero 24.
   if(nummodel==9) {
-    train = rberdev(n,24)
+    train = benchden::rberdev(n,24)
     minm = min(train)
     maxm = max(train)
-    test = sort(rberdev(n,24))
+    test = sort(benchden::rberdev(n,24))
     test = test[ (test <= maxm) & (test> minm)]
-    dobs = dberdev(test,24)
+    dobs = benchden::dberdev(test,24)
   }
 
   # DENS1 rigollet. C'est un melange 0.5 N(0,1) + 0.5 \sum \limits_{i=1}^{10} \bold{1}_{\left(\frac{2(i-1)}{T},\frac{2i-1}{T}  \right]}
@@ -176,60 +176,60 @@ gendata= function(nummodel = 1, n = 100)
 
   #Kurtotic
   if(nummodel==14) {
-    train = rnorMix(n, MW.nm4)
+    train = nor1mix::rnorMix(n, MW.nm4)
     minm = min(train)
     maxm = max(train)
-    test = sort(rnorMix(n, MW.nm4))
+    test = sort(nor1mix::rnorMix(n, MW.nm4))
     test = test[ (test <= maxm) & (test> minm)]
-    dobs = dnorMix(test, MW.nm4)
+    dobs = nor1mix::dnorMix(test, MW.nm4)
   }
   #AsimClaw
   if(nummodel==15) {
-    train = rnorMix(n, MW.nm12)
+    train = nor1mix::rnorMix(n, MW.nm12)
     minm = min(train)
     maxm = max(train)
-    test = sort(rnorMix(n, MW.nm12))
+    test = sort(nor1mix::rnorMix(n, MW.nm12))
     test = test[ (test <= maxm) & (test> minm)]
-    dobs = dnorMix(test, MW.nm12)
+    dobs = nor1mix::dnorMix(test, MW.nm12)
   }
   #AsimDoubleClaw
   if(nummodel==16) {
-    train = rnorMix(n, MW.nm13)
+    train = nor1mix::rnorMix(n, MW.nm13)
     minm = min(train)
     maxm = max(train)
-    test = sort(rnorMix(n, MW.nm13))
+    test = sort(nor1mix::rnorMix(n, MW.nm13))
     test = test[ (test <= maxm) & (test> minm)]
-    dobs = dnorMix(test, MW.nm13)
+    dobs = nor1mix::dnorMix(test, MW.nm13)
   }
 
   #SmooComb
   if(nummodel==17) {
-    train = rnorMix(n, MW.nm14)
+    train = nor1mix::rnorMix(n, MW.nm14)
     minm = min(train)
     maxm = max(train)
-    test = sort(rnorMix(n, MW.nm14))
+    test = sort(nor1mix::rnorMix(n, MW.nm14))
     test = test[ (test <= maxm) & (test> minm)]
-    dobs = dnorMix(test, MW.nm14)
+    dobs = nor1mix::dnorMix(test, MW.nm14)
   }
 
   #DistComb
   if(nummodel==18) {
-    train = rnorMix(n, MW.nm15)
+    train = nor1mix::rnorMix(n, MW.nm15)
     minm = min(train)
     maxm = max(train)
-    test = sort(rnorMix(n, MW.nm15))
+    test = sort(nor1mix::rnorMix(n, MW.nm15))
     test = test[ (test <= maxm) & (test> minm)]
-    dobs = dnorMix(test, MW.nm15)
+    dobs = nor1mix::dnorMix(test, MW.nm15)
   }
 
   #DistBim
   if(nummodel==19) {
-    train = rnorMix(n, MW.nm16)
+    train = nor1mix::rnorMix(n, MW.nm16)
     minm = min(train)
     maxm = max(train)
-    test = sort(rnorMix(n, MW.nm16))
+    test = sort(nor1mix::rnorMix(n, MW.nm16))
     test = test[ (test <= maxm) & (test> minm)]
-    dobs = dnorMix(test, MW.nm16)
+    dobs = nor1mix::dnorMix(test, MW.nm16)
   }
 
 

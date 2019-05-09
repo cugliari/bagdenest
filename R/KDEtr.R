@@ -1,15 +1,14 @@
-#' Title ???????
+#' Title prevision
 #'
 #' @param dlearn  learning saple
 #' @param dtest test sample
-#' @param w ?????
-#' @param h ?????
+#' @param w ????
+#' @param h step
 #'
-#' @return ?????
+#' @return prvision
 #' @export
 KDEtr = function(dlearn,dtest,w=NULL,h=0.1)
 {
-  library(ks)
   n = length(dlearn)
   if(is.null(w)) w=rep(1/n,n)
   yy = outer(dtest,dlearn,"-")/h

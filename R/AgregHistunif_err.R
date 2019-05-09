@@ -1,14 +1,14 @@
-#' Title prevision and prevision error
+#' Title prevision and prevision error  according to AgregHistunif.err
 #'
 #' @param xx data vector
-#' @param grille grid for density evaluation
 #' @param nbr number of break sfor histogram
 #' @param B number of histograms to aggregate
 #' @param dobs observation
+#' @param grid grid
 #'
-#' @return ????
+#' @return prevision and prevision error
 #' @export
-AgregHistunif.err = function(xx,grille=aa,nbr = 50, B= 10,dobs) {
+AgregHistunif_err = function(xx,grid,nbr = 50, B= 10,dobs) {
   fin = 0
   err00=NULL
   zz = hist(xx,breaks=mybreaks(xx,nbr),plot=F,warn.unused = F)$breaks
@@ -20,7 +20,7 @@ AgregHistunif.err = function(xx,grille=aa,nbr = 50, B= 10,dobs) {
   {
     newb = zz + runif(length(zz),0,h)
     hs2=hist(xx,breaks=c(mx,newb,Mx),plot=F,warn.unused = F)
-    fin= fin + predicthist(hs2,grille)
+    fin= fin + predict_hist(hs2,grid)
     previ=fin/i
     err00=rbind(err00,error(dobs,previ))
     #if(i%%20 == 0) cat(i,">>")

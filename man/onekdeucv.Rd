@@ -2,18 +2,18 @@
 % Please edit documentation in R/onekdeucv.R
 \name{onekdeucv}
 \alias{onekdeucv}
-\title{Title ??}
+\title{Title  kde estimation}
 \usage{
-onekdeucv(xx, grille = aa)
+onekdeucv(xx, grid)
 }
 \arguments{
 \item{xx}{data vector}
 
-\item{grille}{grille    grid for density evaluation}
+\item{grid}{grid}
 }
 \value{
-??
+estimations
 }
 \description{
-Title ??
+Title  kde estimation
 }

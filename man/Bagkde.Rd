@@ -2,14 +2,14 @@
 % Please edit documentation in R/Bagkde.R
 \name{Bagkde}
 \alias{Bagkde}
-\title{TitlePrevision acording to Bagkde}
+\title{Title Prevision acording to Bagkde}
 \usage{
-Bagkde(xx, grille = aa, dobs, B = 10)
+Bagkde(xx, grid, dobs, B = 10)
 }
 \arguments{
 \item{xx}{data vector}
 
-\item{grille}{grid for density evaluation}
+\item{grid}{grid}
 
 \item{dobs}{observation}
 
@@ -19,5 +19,5 @@ Bagkde(xx, grille = aa, dobs, B = 10)
 Prevision
 }
 \description{
-TitlePrevision acording to Bagkde
+Title Prevision acording to Bagkde
 }

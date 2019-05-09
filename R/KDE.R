@@ -1,14 +1,13 @@
-#' Title  ????
+#' Title  prevision according to KDE
 #'
 #' @param dlearn  learning sample
 #' @param dtest test sample
-#' @param w ?????
-#' @param h ????
+#' @param w ????
+#' @param h step
 #'
-#' @return ?????
+#' @return prvision
 #' @export
 KDE = function(dlearn,dtest,w=NULL,h=0.1){
-  library(ks)
   n = length(dlearn)
   if(is.null(w)) w=rep(1/n,n)
   yy = outer(dtest,dlearn,"-")/h
