@@ -1,0 +1,85 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+```
+# bagdenest
+
+***
+
+<!-- badges: start -->
+<!-- badges: end -->
+
+The goal of *bagdenest* is to provide density estimation by averaging classical density estimators
+such as the histogram, the frequency polygon and the kernel density estimators
+obtained over different bootstrap samples of the original data.
+
+***
+
+### License 
+This package is free and open source software, licensed under GPL-3.
+
+***
+
+### Installation
+
+* You can install the released version of bagdenest from [CRAN](https://CRAN.R-project.org) with:
+
+``` r
+install.packages("bagdenest")
+```
+
+* And the development version from [GitHub](https://github.com/) with:
+
+``` r
+# install.packages("devtools")
+devtools::install_github("cugliari/bagdenest")
+```
+***
+### Example
+
+This is a basic example which shows you how to display densities estimator errors using *bagdenest*:
+
+```{r example,warning=FALSE}
+library(bagdenest)
+
+simulations=function(n = 100, M = 10, B = 150){
+  vec = c(1,3,5,7,8,11,10,13,17,19,20,21)
+  AA = matrix(0, nrow = length(vec), ncol = 7)
+  colnames(AA)=c("H","FP","Kde", "BagHist", "BagFP", "BagKde", "Rash")
+  rownames(AA)=c("normal","chi2_10","MIX_1","MIx_2","CLAW","Triangular",
+                 "DENS2_rigollet","uniforme","SmooComb","DistBim","DENS1_rigollet","MIX_Unif")
+  for(i in 1:M){
+    A = matrix(NA, nrow = length(vec), ncol = 7)
+    for(ll in 1:length(vec)){
+      dd = gendata(vec[ll],n)
+      bopt = bropt(dd$train)$opt  
+      zz = hist(dd$train,breaks=mybreaks(dd$train,nbr=bopt),plot=F)
+      bhist = BagHistfp(xx=dd$train, grid=dd$test, B)
+      modelrash = rash(dd$train, grid = dd$test, nbr = bopt, B)
+      modelbagkde <- Bagkde(xx = dd$train, grid = dd$test, B)
+      A[ll,]=c(error(dd$dobs,predict_hist(zz,dd$test))[1],
+               error(dd$dobs,approxfun(x=zz$mids,y=zz$density)(dd$test))[1],
+               error(dd$dobs,onekdeucv(dd$train,dd$test))[1],
+               error(dd$dobs,bhist$bh)[1],
+               error(dd$dobs,bhist$bhfp)[1],
+               error(dd$dobs,modelbagkde)[1],
+               error(dd$dobs,modelrash)[1])
+      }
+    AA=AA+A
+  }
+  AA=AA/M
+  print(AA)
+}
+simulations(n = 100, M = 2, B = 15)
+```
+***
