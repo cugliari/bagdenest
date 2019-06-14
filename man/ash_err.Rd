@@ -2,12 +2,12 @@
 % Please edit documentation in R/ash_err.R
 \name{ash_err}
 \alias{ash_err}
-\title{Title   prevision and prevision error according to ash.err}
+\title{Density estimation whit ash_err}
 \usage{
 ash_err(xx, aa, nbr, B = 10, dobs)
 }
 \arguments{
-\item{xx}{data vector}
+\item{xx}{data vector for histograms construction .}
 
 \item{aa}{grid for density evaluation}
 
@@ -15,11 +15,12 @@ ash_err(xx, aa, nbr, B = 10, dobs)
 
 \item{B}{number of histograms to aggregate}
 
-\item{dobs}{observation}
+\item{dobs}{density values associated whit test sample}
 }
 \value{
 prevision and prevision error
 }
 \description{
-Title   prevision and prevision error according to ash.err
+This function modifies sets of intervals defined over the partions support of density
+ to estimate. Then calculates the average of the histograms estimates built on this transformation.
 }

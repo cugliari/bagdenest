@@ -1,10 +1,13 @@
-#' Title prevision and prevision error
+#' @title Density estimation whit BagHist
 #'
-#' @param xx data vector
+#' @description This function builds histograms from the bootstrap samples.
+#' Then averages  the estimates provided  by these histograms and computes thes estimation errro.
+#'
+#' @param xx data vector for histograms construction .
 #' @param B number of histograms to aggregate
-#' @param grid grid
+#' @param grid grid for density evaluation
 #'
-#' @return prevision and prevision error
+#' @return estimation
 #' @export
 #' @import graphics
 BagHist = function(xx,grid, B= 10) {

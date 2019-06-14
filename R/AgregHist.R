@@ -1,12 +1,15 @@
-#' Title  prevision and prevision error according to AgregHist
+#'@title Aggregation of disturbed histograms.
 #'
-#' @param xx data vector
-#' @param nbr number of break sfor histogram
+#'@description This function aggregates disturbed histograms.Each histogram is disturbed by adding to each of its estimates an observation of a centered normal variable
+#' whose variance is coeficiant "alpha" which is the pertubation parameter.For each histogram a simulation of this normal variable is performed.
+#'
+#' @param xx data vector for histograms bulding.
+#' @param nbr number of breaks  for histogram
 #' @param B  number of histograms to aggregate
 #' @param alpha  disturbance parametter
-#' @param grid  grid
+#' @param grid  data vector.this vector makes it possible to provide estimations and estimation errors.
 #'
-#' @return prevision
+#' @return Estimation of the values of a density function.
 #' @export
 #' @import graphics
 AgregHist = function(xx,grid,nbr = 50, B=10, alpha=1) {

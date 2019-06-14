@@ -1,16 +1,18 @@
-#' Title prevision and prevision error according to BagHist.err
+#' @title Density estimation whit BagHist_err
 #'
-#' @param xx data vector
-#' @param B  number of histograms to aggregate
-#' @param dobs observation
-#' @param grid grid
+#' @description This function builds histograms from the bootstrap samples.
+#' Then averages  the estimates provided  by these histograms and computes thes estimation error.
 #'
-#' @return  prevision and prevision error
+#' @param xx data vector for histograms construction .
+#' @param B number of histograms to aggregate
+#' @param grid grid for density evaluation
+#' @param dobs density values associated whit test sample
+#'
+#' @return estimation and estimation error.
 #' @export
 #' @import graphics
 BagHist_err = function(xx,grid,B= 10,dobs) {
-  # A chaque etape, on prend un nouveau jeu de donn?es, on construit un histogramme, on pr?dit et on agr?ge.
-  #
+
   n = length(xx)
   err00=NULL
   fin = 0
@@ -23,8 +25,6 @@ BagHist_err = function(xx,grid,B= 10,dobs) {
     fin= fin + predict_hist(hs2,grid)
     previ=fin/i
     err00=rbind(err00,error(dobs,previ))
-    #if(i%%20 == 0) cat(i,">>")
   }
-  #	cat("\n")
   list(prev=fin/B,erreur=err00)
 }

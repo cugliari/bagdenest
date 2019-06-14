@@ -1,19 +1,17 @@
-#' Title  prevision and prevision error according to AgregHistunif
+#' @title Aggregation of disturbed histograms.
 #'
-#' @param xx  data vector
-#' @param nbr number of break sfor histogram
+#' @description This function aggregated histograms disturbed.each histogram is disturbed with a uniform variable.
+#' Thus for each histogram a simulation of this uniform variable is performed.
+#'
+#' @param xx data vector.this vector makes it possible to build histograms
+#' @param grid  data vector.This vector makes it possible to provide estimates and estimation errors.
+#' @param nbr number of breaks for histogram
 #' @param B number of histograms to aggregate
-#' @param grid  grid
 #'
-#' @return  prevision
+#' @return Estimation of the values of a density function .
 #' @export
 #' @import graphics
 AgregHistunif = function(xx,grid,nbr = 50, B=10) {
-  # xx	data vector
-  # grille	grid for density evaluation
-  # br	number of break sfor histogram
-  # B		number of histograms to aggregate
-  #Je perturbe chaque histogramme avec une normale et j'agr?ge (sans bootstrap)
   fin = 0
   zz = hist(xx,breaks=mybreaks(xx,nbr),plot=F,warn.unused = F)$breaks
   z=diff(zz)
@@ -22,15 +20,9 @@ AgregHistunif = function(xx,grid,nbr = 50, B=10) {
   Mx = max(xx)
   for(i in 1:B)
   {
-    #blabla=sqrt(abs(min(diff(zz))))
     newb = zz + runif(length(zz),0,h)
-    #newb=sort(newb)
-    #if(min(newb) > mx) newb= c(mx,newb)
-    #if(max(newb) < Mx) newb= c(newb, Mx)
     hs2=hist(xx,breaks=c(mx,newb,Mx),plot=F,warn.unused = F)
     fin= fin + predict_hist(hs2,grid)
-    #if(i%%20 == 0) cat(i,">>")
   }
-  #cat("\n")
   fin/B
 }

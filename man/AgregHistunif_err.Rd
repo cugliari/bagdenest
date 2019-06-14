@@ -2,24 +2,25 @@
 % Please edit documentation in R/AgregHistunif_err.R
 \name{AgregHistunif_err}
 \alias{AgregHistunif_err}
-\title{Title prevision and prevision error  according to AgregHistunif.err}
+\title{Aggregation of disturbed histograms and estimation error.}
 \usage{
 AgregHistunif_err(xx, grid, nbr = 50, B = 10, dobs)
 }
 \arguments{
-\item{xx}{data vector}
+\item{xx}{data vector.this vector makes it possible to build histograms}
 
-\item{grid}{grid}
+\item{grid}{data vector.This vector makes it possible to provide estimates and estimation errors.}
 
-\item{nbr}{number of break sfor histogram}
+\item{nbr}{number of breaks for histogram}
 
 \item{B}{number of histograms to aggregate}
 
-\item{dobs}{observation}
+\item{dobs}{density values associated with test sample.}
 }
 \value{
-prevision and prevision error
+Estimation of the values of a density function And estimation error.
 }
 \description{
-Title prevision and prevision error  according to AgregHistunif.err
+This function aggregated histograms disturbed.each histogram is disturbed with a uniform variable.
+Thus for each histogram a simulation of this uniform variable is performed.
 }

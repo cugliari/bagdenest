@@ -2,26 +2,29 @@
 % Please edit documentation in R/AgregHist_err.R
 \name{AgregHist_err}
 \alias{AgregHist_err}
-\title{Title  prevision and prevision error according to AgregHist.err}
+\title{Aggregation of disturbed histograms and estimation error.}
 \usage{
 AgregHist_err(xx, grid, nbr = 50, B = 10, dobs, alpha = 1)
 }
 \arguments{
-\item{xx}{data vector}
+\item{xx}{data vector . this vector makes it possible to build histograms.}
 
-\item{grid}{grid}
+\item{grid}{data vector.this vector makes it possible to provide estimates and estimation errors.}
 
-\item{nbr}{number of break sfor histogram}
+\item{nbr}{number of breaks for histogram}
 
 \item{B}{number of histograms to aggregate}
 
-\item{dobs}{observation}
+\item{dobs}{density values associated with test sample.}
 
-\item{alpha}{parameters}
+\item{alpha}{pertubation parametter}
 }
 \value{
-prevision and prevision error
+Estimation of the values of a density function And estimation error.
 }
 \description{
-Title  prevision and prevision error according to AgregHist.err
+This function aggregates disturbed histograms an provides estimation error from the aggregation.
+Each histogram is disturbed by adding to each of its estimates an observation of a centered normal variable whose
+variance is coeficiant "alpha" which is the pertubation parameter.
+For each histogram a simulation of the normal variable is performed.
 }

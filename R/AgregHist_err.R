@@ -1,13 +1,18 @@
-#' Title  prevision and prevision error according to AgregHist.err
+#' @title Aggregation of disturbed histograms and estimation error.
 #'
-#' @param xx data vector
-#' @param nbr number of break sfor histogram
+#' @description This function aggregates disturbed histograms an provides estimation error from the aggregation.
+#' Each histogram is disturbed by adding to each of its estimates an observation of a centered normal variable whose
+#' variance is coeficiant "alpha" which is the pertubation parameter.
+#' For each histogram a simulation of the normal variable is performed.
+#'
+#' @param xx data vector . this vector makes it possible to build histograms.
+#' @param grid  data vector.this vector makes it possible to provide estimates and estimation errors.
+#' @param nbr number of breaks for histogram
 #' @param B number of histograms to aggregate
-#' @param dobs  observation
-#' @param alpha parameters
-#' @param grid  grid
+#' @param dobs density values associated with test sample.
+#' @param alpha pertubation parametter
 #'
-#' @return  prevision and prevision error
+#' @return  Estimation of the values of a density function And estimation error.
 #' @export
 #' @import graphics
 AgregHist_err = function(xx,grid,nbr = 50, B= 10,dobs,alpha=1) {
@@ -27,9 +32,7 @@ AgregHist_err = function(xx,grid,nbr = 50, B= 10,dobs,alpha=1) {
     fin= fin + predict_hist(hs2,eps)
     previ=fin/i
     err00=rbind(err00,error(dobs,previ))
-    #if(i%%20 == 0) cat(i,">>")
   }
-  #cat("\n")
   list(prev=fin/B,erreur=err00)
 }
 

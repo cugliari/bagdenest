@@ -2,24 +2,25 @@
 % Please edit documentation in R/AgregHist.R
 \name{AgregHist}
 \alias{AgregHist}
-\title{Title  prevision and prevision error according to AgregHist}
+\title{Aggregation of disturbed histograms.}
 \usage{
 AgregHist(xx, grid, nbr = 50, B = 10, alpha = 1)
 }
 \arguments{
-\item{xx}{data vector}
+\item{xx}{data vector for histograms bulding.}
 
-\item{grid}{grid}
+\item{grid}{data vector.this vector makes it possible to provide estimations and estimation errors.}
 
-\item{nbr}{number of break sfor histogram}
+\item{nbr}{number of breaks  for histogram}
 
 \item{B}{number of histograms to aggregate}
 
 \item{alpha}{disturbance parametter}
 }
 \value{
-prevision
+Estimation of the values of a density function.
 }
 \description{
-Title  prevision and prevision error according to AgregHist
+This function aggregates disturbed histograms.Each histogram is disturbed by adding to each of its estimates an observation of a centered normal variable
+whose variance is coeficiant "alpha" which is the pertubation parameter.For each histogram a simulation of this normal variable is performed.
 }

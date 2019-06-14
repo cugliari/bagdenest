@@ -1,12 +1,15 @@
-#' Title prevision and prevision error  according to AgregHistunif.err
+#'@title Aggregation of disturbed histograms and estimation error.
 #'
-#' @param xx data vector
-#' @param nbr number of break sfor histogram
+#'@description This function aggregated histograms disturbed.each histogram is disturbed with a uniform variable.
+#' Thus for each histogram a simulation of this uniform variable is performed.
+#'
+#' @param xx data vector.this vector makes it possible to build histograms
+#' @param grid  data vector.This vector makes it possible to provide estimates and estimation errors.
+#' @param nbr number of breaks for histogram
 #' @param B number of histograms to aggregate
-#' @param dobs observation
-#' @param grid grid
+#' @param dobs density values associated with test sample.
 #'
-#' @return prevision and prevision error
+#' @return Estimation of the values of a density function And estimation error.
 #' @export
 AgregHistunif_err = function(xx,grid,nbr = 50, B= 10,dobs) {
   fin = 0

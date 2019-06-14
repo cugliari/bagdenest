@@ -1,10 +1,13 @@
-#' Title   prevision and prevision error according to ash.err
+#' @title Density estimation whit ash_err
 #'
-#' @param xx data vector
+#' @description  This function modifies sets of intervals defined over the partions support of density
+#'  to estimate. Then calculates the average of the histograms estimates built on this transformation.
+#'
+#' @param xx data vector for histograms construction .
 #' @param aa grid for density evaluation
 #' @param nbr number of break sfor histogram
 #' @param B number of histograms to aggregate
-#' @param dobs  observation
+#' @param dobs  density values associated whit test sample
 #'
 #' @return  prevision and prevision error
 #' @export
@@ -23,3 +26,4 @@ ash_err = function(xx,aa,nbr, B= 10,dobs) {
   }
   list(prev=predi,erreur=err0)
 }
+

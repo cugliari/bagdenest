@@ -2,22 +2,23 @@
 % Please edit documentation in R/BagHist_err.R
 \name{BagHist_err}
 \alias{BagHist_err}
-\title{Title prevision and prevision error according to BagHist.err}
+\title{Density estimation whit BagHist_err}
 \usage{
 BagHist_err(xx, grid, B = 10, dobs)
 }
 \arguments{
-\item{xx}{data vector}
+\item{xx}{data vector for histograms construction .}
 
-\item{grid}{grid}
+\item{grid}{grid for density evaluation}
 
 \item{B}{number of histograms to aggregate}
 
-\item{dobs}{observation}
+\item{dobs}{density values associated whit test sample}
 }
 \value{
-prevision and prevision error
+estimation and estimation error.
 }
 \description{
-Title prevision and prevision error according to BagHist.err
+This function builds histograms from the bootstrap samples.
+Then averages  the estimates provided  by these histograms and computes thes estimation error.
 }
