@@ -1,11 +1,14 @@
-#' Title prevision
+#' @title  estimation according to KDEtr
 #'
-#' @param dlearn  learning saple
+#' @description This function makes density estimation whith Kernel Density Estimator using
+#'              triangular kernel.
+#'
+#' @param dlearn  learning sample
 #' @param dtest test sample
-#' @param w ????
+#' @param w  a vector of 1/n , where n is the length learning sample .
 #' @param h step
 #'
-#' @return prvision
+#' @return Estimation
 #' @export
 KDEtr = function(dlearn,dtest,w=NULL,h=0.1)
 {

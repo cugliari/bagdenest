@@ -2,22 +2,23 @@
 % Please edit documentation in R/KDEtr.R
 \name{KDEtr}
 \alias{KDEtr}
-\title{Title prevision}
+\title{estimation according to KDEtr}
 \usage{
 KDEtr(dlearn, dtest, w = NULL, h = 0.1)
 }
 \arguments{
-\item{dlearn}{learning saple}
+\item{dlearn}{learning sample}
 
 \item{dtest}{test sample}
 
-\item{w}{????}
+\item{w}{a vector of 1/n , where n is the length learning sample .}
 
 \item{h}{step}
 }
 \value{
-prvision
+Estimation
 }
 \description{
-Title prevision
+This function makes density estimation whith Kernel Density Estimator using
+             triangular kernel.
 }

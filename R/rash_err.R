@@ -1,12 +1,13 @@
-#' Title  prevision and prevision error
-#'
+#' @title density estimation and estimation error whith rash.
+#' @description this function builds several histograms by disturbing the partition
+#'              of the histogram with a Gaussian noise and then aggregates them.
 #' @param xx data vector
-#' @param nbr number of break sfor histogram
+#' @param grid grid for density evaluation
+#' @param nbr number of breaks for histogram
 #' @param B number of histograms to aggregate
-#' @param dobs observation
-#' @param grid  grid
+#' @param dobs density values associated whit test sample
 #'
-#' @return  prevision and prevision error
+#' @return  estimation and estimattion error
 #' @export
 #' @import graphics
 rash_err = function(xx,grid,nbr = 50, B= 10,dobs) {

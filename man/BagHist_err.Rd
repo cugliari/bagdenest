@@ -20,5 +20,5 @@ estimation and estimation error.
 }
 \description{
 This function builds histograms from the bootstrap samples.
-Then averages  the estimates provided  by these histograms and computes thes estimation error.
+Then averages  the estimates provided  by these histograms and computes these estimation error.
 }

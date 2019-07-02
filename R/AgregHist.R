@@ -1,4 +1,4 @@
-#'@title Aggregation of disturbed histograms.
+#'@title Density estimation with AgregHist.
 #'
 #'@description This function aggregates disturbed histograms.Each histogram is disturbed by adding to each of its estimates an observation of a centered normal variable
 #' whose variance is coeficiant "alpha" which is the pertubation parameter.For each histogram a simulation of this normal variable is performed.
@@ -7,9 +7,9 @@
 #' @param nbr number of breaks  for histogram
 #' @param B  number of histograms to aggregate
 #' @param alpha  disturbance parametter
-#' @param grid  data vector.this vector makes it possible to provide estimations and estimation errors.
+#' @param grid grid for density evaluation.
 #'
-#' @return Estimation of the values of a density function.
+#' @return Estimation.
 #' @export
 #' @import graphics
 AgregHist = function(xx,grid,nbr = 50, B=10, alpha=1) {

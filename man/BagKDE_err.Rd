@@ -2,22 +2,23 @@
 % Please edit documentation in R/BagKDE_err.R
 \name{BagKDE_err}
 \alias{BagKDE_err}
-\title{Title prevision and prevision error  according to BagKDE.err}
+\title{Density estimation with Bagkde_err}
 \usage{
 BagKDE_err(xx, grid, B = 10, dobs)
 }
 \arguments{
-\item{xx}{data vector}
+\item{xx}{data vector  for estimator bulding}
 
 \item{grid}{grid for density evaluation}
 
 \item{B}{number of histograms to aggregate}
 
-\item{dobs}{obervation}
+\item{dobs}{density values associated whit test sample}
 }
 \value{
 prevision and prevision error
 }
 \description{
-Title prevision and prevision error  according to BagKDE.err
+This function builds Kernel Densities estimators from the bootstrap samples.
+Then averages  the estimates provided  by these estimators  and computes their estimation error.
 }

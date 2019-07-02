@@ -2,18 +2,18 @@
 % Please edit documentation in R/error2.R
 \name{error2}
 \alias{error2}
-\title{Title error2}
+\title{Estimation error}
 \usage{
 error2(obs, prev)
 }
 \arguments{
-\item{obs}{observation}
+\item{obs}{sample of observations}
 
 \item{prev}{prevision}
 }
 \value{
-an error value
+Quadratic error ,Error log likelihood or  Hellinger dissimilarity error
 }
 \description{
-Title error2
+This function provides the error made by an estimator
 }

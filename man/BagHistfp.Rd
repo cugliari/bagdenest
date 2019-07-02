@@ -2,20 +2,21 @@
 % Please edit documentation in R/BagHistfp.R
 \name{BagHistfp}
 \alias{BagHistfp}
-\title{Title prevision and prevision acording to BagHistfp}
+\title{Density estimation whit BagHistfp}
 \usage{
 BagHistfp(xx, grid, B = 10)
 }
 \arguments{
-\item{xx}{data vector}
+\item{xx}{data vector for Frequency Folygone construction .}
 
-\item{grid}{grid}
+\item{grid}{grid for density evaluation}
 
-\item{B}{number of histograms to aggregate}
+\item{B}{number of Frequency Folygone to aggregate}
 }
 \value{
-prevision
+estimation
 }
 \description{
-Title prevision and prevision acording to BagHistfp
+This function builds "Frequency Folygones"  from the bootstrap samples.
+Then averages  the estimates provided  by these estimators .
 }

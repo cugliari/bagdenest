@@ -1,7 +1,7 @@
 #' @title Density estimation whit BagHist_err
 #'
 #' @description This function builds histograms from the bootstrap samples.
-#' Then averages  the estimates provided  by these histograms and computes thes estimation error.
+#' Then averages  the estimates provided  by these histograms and computes these estimation error.
 #'
 #' @param xx data vector for histograms construction .
 #' @param B number of histograms to aggregate

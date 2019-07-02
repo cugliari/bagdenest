@@ -2,14 +2,14 @@
 % Please edit documentation in R/AgregHist.R
 \name{AgregHist}
 \alias{AgregHist}
-\title{Aggregation of disturbed histograms.}
+\title{Density estimation with AgregHist.}
 \usage{
 AgregHist(xx, grid, nbr = 50, B = 10, alpha = 1)
 }
 \arguments{
 \item{xx}{data vector for histograms bulding.}
 
-\item{grid}{data vector.this vector makes it possible to provide estimations and estimation errors.}
+\item{grid}{grid for density evaluation.}
 
 \item{nbr}{number of breaks  for histogram}
 
@@ -18,7 +18,7 @@ AgregHist(xx, grid, nbr = 50, B = 10, alpha = 1)
 \item{alpha}{disturbance parametter}
 }
 \value{
-Estimation of the values of a density function.
+Estimation.
 }
 \description{
 This function aggregates disturbed histograms.Each histogram is disturbed by adding to each of its estimates an observation of a centered normal variable

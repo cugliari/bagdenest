@@ -2,24 +2,25 @@
 % Please edit documentation in R/rash_err.R
 \name{rash_err}
 \alias{rash_err}
-\title{Title  prevision and prevision error}
+\title{density estimation and estimation error whith rash.}
 \usage{
 rash_err(xx, grid, nbr = 50, B = 10, dobs)
 }
 \arguments{
 \item{xx}{data vector}
 
-\item{grid}{grid}
+\item{grid}{grid for density evaluation}
 
-\item{nbr}{number of break sfor histogram}
+\item{nbr}{number of breaks for histogram}
 
 \item{B}{number of histograms to aggregate}
 
-\item{dobs}{observation}
+\item{dobs}{density values associated whit test sample}
 }
 \value{
-prevision and prevision error
+estimation and estimattion error
 }
 \description{
-Title  prevision and prevision error
+this function builds several histograms by disturbing the partition
+             of the histogram with a Gaussian noise and then aggregates them.
 }

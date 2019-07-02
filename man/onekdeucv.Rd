@@ -2,18 +2,18 @@
 % Please edit documentation in R/onekdeucv.R
 \name{onekdeucv}
 \alias{onekdeucv}
-\title{Title  kde estimation}
+\title{kde estimation}
 \usage{
 onekdeucv(xx, grid)
 }
 \arguments{
-\item{xx}{data vector}
+\item{xx}{data vector  for estimator bulding}
 
-\item{grid}{grid}
+\item{grid}{grid for density evaluation}
 }
 \value{
 estimations
 }
 \description{
-Title  kde estimation
+this function estimates a density using kde
 }

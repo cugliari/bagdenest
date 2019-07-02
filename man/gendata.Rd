@@ -2,18 +2,19 @@
 % Please edit documentation in R/gendata.R
 \name{gendata}
 \alias{gendata}
-\title{Title  the Training set, the Test set}
+\title{Data generation whith gendata  function .}
 \usage{
 gendata(nummodel = 1, n = 100)
 }
 \arguments{
-\item{nummodel}{number of the model}
+\item{nummodel}{number to choose a dristribution low.}
 
-\item{n}{sample size}
+\item{n}{sample size .}
 }
 \value{
-the training s,et, the test set
+the training set, the test set and density values .
 }
 \description{
-Title  the Training set, the Test set
+This function provides the Training set, the Test set and density values
+from a distribution law.
 }

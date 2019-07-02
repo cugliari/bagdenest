@@ -1,10 +1,13 @@
-#' Title prevision and prevision acording to BagHistfp
+#' @title Density estimation whit BagHistfp
 #'
-#' @param xx data vector
-#' @param B number of histograms to aggregate
-#' @param grid grid
+#' @description This function builds "Frequency Folygones"  from the bootstrap samples.
+#' Then averages  the estimates provided  by these estimators .
 #'
-#' @return prevision
+#' @param xx data vector for Frequency Folygone construction .
+#' @param B number of Frequency Folygone to aggregate
+#' @param grid grid for density evaluation
+#'
+#' @return estimation
 #' @export
 #' @import graphics
 BagHistfp = function(xx,grid, B= 10) {

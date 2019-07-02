@@ -1,7 +1,9 @@
-#' Title breaks
+#'@title breaks
+#'
+#'@description This funtion  provides breaks for a density estimator
 #'
 #' @param x data vector
-#' @param nbr number of break sfor histogram
+#' @param nbr number of breaks for an estimator
 #'
 #' @return  a breaks
 #' @export

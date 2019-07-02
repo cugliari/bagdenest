@@ -2,18 +2,18 @@
 % Please edit documentation in R/mybreaks.R
 \name{mybreaks}
 \alias{mybreaks}
-\title{Title breaks}
+\title{breaks}
 \usage{
 mybreaks(x = rnorm(100), nbr)
 }
 \arguments{
 \item{x}{data vector}
 
-\item{nbr}{number of break sfor histogram}
+\item{nbr}{number of breaks for an estimator}
 }
 \value{
 a breaks
 }
 \description{
-Title breaks
+This funtion  provides breaks for a density estimator
 }

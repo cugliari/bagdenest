@@ -2,18 +2,18 @@
 % Please edit documentation in R/error.R
 \name{error}
 \alias{error}
-\title{Title error}
+\title{Estimation error}
 \usage{
 error(obs, prev)
 }
 \arguments{
-\item{obs}{observation}
+\item{obs}{values associated with test sample.}
 
-\item{prev}{Pprevision}
+\item{prev}{prevision}
 }
 \value{
-an error value
+quadratic error ,Error log likelihood
 }
 \description{
-Title error
+this function provides estimation  using quadratic error or Error log likelihood .
 }

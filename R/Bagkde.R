@@ -1,11 +1,14 @@
-#' Title Prevision acording to Bagkde
+#' @title Density estimation with Bagkde
 #'
-#' @param xx data vector
-#' @param dobs  observation
+#' @description  This function builds Kernel Densities estimators from the bootstrap samples.
+#' Then averages  the estimates provided  by these estimators.
+#'
+#' @param xx data vector  for estimator bulding
+#' @param grid grid for density evaluation
+#' @param dobs density values associated whit test sample
 #' @param B number of histograms to aggregate
-#' @param grid  grid
 #'
-#' @return Prevision
+#' @return estimations
 #' @export
 Bagkde <- function(xx, grid, dobs, B = 10) {
   n   = length(xx)

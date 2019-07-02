@@ -2,16 +2,16 @@
 % Please edit documentation in R/rash.R
 \name{rash}
 \alias{rash}
-\title{Title  Prevision acording to rash}
+\title{Density estimation rash.}
 \usage{
 rash(xx, grid, nbr = 50, B = 10)
 }
 \arguments{
 \item{xx}{data vector}
 
-\item{grid}{grid}
+\item{grid}{grid for density evaluation}
 
-\item{nbr}{number of break sfor histogram}
+\item{nbr}{number of breaks for histogram}
 
 \item{B}{number of histograms to aggregate}
 }
@@ -19,5 +19,6 @@ rash(xx, grid, nbr = 50, B = 10)
 Prevision
 }
 \description{
-Title  Prevision acording to rash
+This function builds several histograms by disturbing the partition
+             of the histogram with a Gaussian noise and then aggregates them.
 }

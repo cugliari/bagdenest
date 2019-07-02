@@ -1,8 +1,11 @@
-#' Title  the Training set, the Test set
-#' @param nummodel number of the model
-#' @param n sample size
+#' @title Data generation whith gendata  function .
 #'
-#' @return the training s,et, the test set
+#' @description This function provides the Training set, the Test set and density values
+#' from a distribution law.
+#' @param nummodel number to choose a dristribution low.
+#' @param n sample size .
+#'
+#' @return the training set, the test set and density values .
 #'
 #' @export
 #' @import stats  nor1mix

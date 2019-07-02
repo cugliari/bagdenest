@@ -2,26 +2,27 @@
 % Please edit documentation in R/rashfp_err.R
 \name{rashfp_err}
 \alias{rashfp_err}
-\title{Title  prevision and prevision error}
+\title{density estimation and estimation error whith rashfp_err.}
 \usage{
 rashfp_err(xx, grid, nbr = 50, B = 10, dobs, alpha = 1)
 }
 \arguments{
 \item{xx}{data vector}
 
-\item{grid}{grid}
+\item{grid}{grid for density evaluation}
 
-\item{nbr}{number of break sfor histogram}
+\item{nbr}{number of breaks for histogram}
 
-\item{B}{number of histograms to aggregate}
+\item{B}{number of frequency polygon to aggregate}
 
-\item{dobs}{observation}
+\item{dobs}{density values associated whit test sample}
 
-\item{alpha}{disturbance parameter}
+\item{alpha}{disturbance parametter}
 }
 \value{
-prevision and prevision error
+estimation and estimation error
 }
 \description{
-Title  prevision and prevision error
+this function builds several Frequency polygons by disturbing the partition
+             of the histogram with a Gaussian noise and then aggregates them.
 }

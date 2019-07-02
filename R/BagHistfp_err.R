@@ -1,11 +1,14 @@
-#' Title  prevision and prevision error according to BagHistfp.err
+#' @title Density estimation whit BagHistfp_err
 #'
-#' @param xx  data vector
-#' @param B number of histograms to aggregate
-#' @param dobs observation
-#' @param grid  grid
+#' @description This function builds "Frequency Folygones"  from the bootstrap samples.
+#' Then averages  the estimates provided  by these estimators and computes their estimation error .
 #'
-#' @return prevision and prevision error
+#' @param xx data vector for Frequency Folygone construction .
+#' @param grid grid for density evaluation.
+#' @param B number of Frequency Folygone to aggregate
+#' @param dobs density values associated whit test sample
+#'
+#' @return estimation and estimation error.
 #' @export
 #' @import graphics
 BagHistfp_err = function(xx,grid, B= 10,dobs) {

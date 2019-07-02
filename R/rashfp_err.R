@@ -1,13 +1,14 @@
-#' Title  prevision and prevision error
-#'
+#' @title density estimation and estimation error whith rashfp_err.
+#' @description this function builds several Frequency polygons by disturbing the partition
+#'              of the histogram with a Gaussian noise and then aggregates them.
 #' @param xx data vector
-#' @param nbr number of break sfor histogram
-#' @param B number of histograms to aggregate
-#' @param dobs observation
-#' @param alpha disturbance parameter
-#' @param grid  grid
+#' @param grid grid for density evaluation
+#' @param nbr number of breaks for histogram
+#' @param B number of frequency polygon to aggregate
+#' @param dobs density values associated whit test sample
+#' @param alpha disturbance parametter
 #'
-#' @return prevision and prevision error
+#' @return estimation and estimation error
 #' @export
 rashfp_err = function(xx,grid,nbr = 50, B= 10,dobs,alpha=1) {
   fin = 0

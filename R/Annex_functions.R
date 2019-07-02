@@ -819,3 +819,7 @@ tube_KDE <- function(data, nbr = 50, B = 10, conf = c(0.05, 0.95)) {
 
   return(list(punctual = punctual, bunch = mat, tube = tube))
 }
+
+
+
+

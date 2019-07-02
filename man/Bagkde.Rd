@@ -2,22 +2,23 @@
 % Please edit documentation in R/Bagkde.R
 \name{Bagkde}
 \alias{Bagkde}
-\title{Title Prevision acording to Bagkde}
+\title{Density estimation with Bagkde}
 \usage{
 Bagkde(xx, grid, dobs, B = 10)
 }
 \arguments{
-\item{xx}{data vector}
+\item{xx}{data vector  for estimator bulding}
 
-\item{grid}{grid}
+\item{grid}{grid for density evaluation}
 
-\item{dobs}{observation}
+\item{dobs}{density values associated whit test sample}
 
 \item{B}{number of histograms to aggregate}
 }
 \value{
-Prevision
+estimations
 }
 \description{
-Title Prevision acording to Bagkde
+This function builds Kernel Densities estimators from the bootstrap samples.
+Then averages  the estimates provided  by these estimators.
 }

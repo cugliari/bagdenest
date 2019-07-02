@@ -1,11 +1,14 @@
-#' Title  prevision according to KDE
+#' @title  estimation according to KDE
+#'
+#' @description This function makes density estimation whith Kernel Density Estimator using
+#'              gaussian kernel.
 #'
 #' @param dlearn  learning sample
 #' @param dtest test sample
-#' @param w ????
+#' @param w  a vector of 1/n , where n is the length learning sample .
 #' @param h step
 #'
-#' @return prvision
+#' @return Estimation
 #' @export
 KDE = function(dlearn,dtest,w=NULL,h=0.1){
   n = length(dlearn)

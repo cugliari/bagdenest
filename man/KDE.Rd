@@ -2,7 +2,7 @@
 % Please edit documentation in R/KDE.R
 \name{KDE}
 \alias{KDE}
-\title{Title  prevision according to KDE}
+\title{estimation according to KDE}
 \usage{
 KDE(dlearn, dtest, w = NULL, h = 0.1)
 }
@@ -11,13 +11,14 @@ KDE(dlearn, dtest, w = NULL, h = 0.1)
 
 \item{dtest}{test sample}
 
-\item{w}{????}
+\item{w}{a vector of 1/n , where n is the length learning sample .}
 
 \item{h}{step}
 }
 \value{
-prvision
+Estimation
 }
 \description{
-Title  prevision according to KDE
+This function makes density estimation whith Kernel Density Estimator using
+             gaussian kernel.
 }

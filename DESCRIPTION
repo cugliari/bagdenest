@@ -3,7 +3,7 @@ Type: Package
 Title: Bagging of Density Estimators
 Version: 0.1.0
 Authors@R: c(
-    person("Erwan", "Giry-Fouquet", email = "m_youla@yahoo.fr",role = c("aut", "cre")
+    person("Erwan", "Giry-Fouquet", email = "mbourel@fing.edu.uy",role = c("aut", "cre")
            ),
     person("Jairo", "Cugliari", email = "jairo.cuglari@univ-lyon2.fr", role = c("aut")
            ),

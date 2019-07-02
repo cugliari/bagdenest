@@ -1,9 +1,9 @@
-#' Title error2
-#'
-#' @param obs observation
+#' @title Estimation error
+#' @description This function provides the error made by an estimator
+#' @param obs sample of observations
 #' @param prev prevision
 #'
-#' @return an error value
+#' @return Quadratic error ,Error log likelihood or  Hellinger dissimilarity error
 #' @export
 error2 = function(obs,prev)	{
   #1) Erreur quadratique

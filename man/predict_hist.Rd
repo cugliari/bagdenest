@@ -2,18 +2,18 @@
 % Please edit documentation in R/predict_hist.R
 \name{predict_hist}
 \alias{predict_hist}
-\title{Title Prediction according to the histogram}
+\title{Prediction whith histogram}
 \usage{
 predict_hist(hh, x)
 }
 \arguments{
-\item{hh}{????}
+\item{hh}{This function estimates values associated with a sample of data using the histogram.}
 
-\item{x}{?????}
+\item{x}{sample of observations}
 }
 \value{
 prediction
 }
 \description{
-Title Prediction according to the histogram
+this function
 }

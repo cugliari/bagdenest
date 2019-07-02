@@ -1,9 +1,10 @@
-#' Title  Prevision acording to rash
-#'
+#' @title Density estimation rash.
+#' @description This function builds several histograms by disturbing the partition
+#'              of the histogram with a Gaussian noise and then aggregates them.
 #' @param xx  data vector
-#' @param nbr number of break sfor histogram
+#' @param nbr number of breaks for histogram
 #' @param B number of histograms to aggregate
-#' @param grid grid
+#' @param grid grid for density evaluation
 #'
 #' @return Prevision
 #' @export

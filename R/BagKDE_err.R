@@ -1,9 +1,12 @@
-#' Title prevision and prevision error  according to BagKDE.err
+#' @title Density estimation with Bagkde_err
 #'
-#' @param xx data vector
+#' @description  This function builds Kernel Densities estimators from the bootstrap samples.
+#' Then averages  the estimates provided  by these estimators  and computes their estimation error.
+#'
+#' @param xx data vector  for estimator bulding
 #' @param grid grid for density evaluation
+#' @param dobs density values associated whit test sample
 #' @param B number of histograms to aggregate
-#' @param dobs obervation
 #'
 #' @return  prevision and prevision error
 #' @export

@@ -1,7 +1,8 @@
-#' Title Prediction according to the histogram
+#' @title Prediction whith histogram
+#' @description  this function
 #'
-#' @param hh ????
-#' @param x ?????
+#' @param hh  This function estimates values associated with a sample of data using the histogram.
+#' @param x sample of observations
 #'
 #' @return prediction
 #' @export
