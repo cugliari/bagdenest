@@ -1,6 +1,8 @@
 #' @title Density estimation rash.
-#' @description This function builds several histograms by disturbing the partition
-#'              of the histogram with a Gaussian noise and then aggregates them.
+#' @description This function builds several histograms in disturbing by translation an intial partition of the histogram
+#'with a Gaussian noise and then aggregates them.Each partition on which a histogram is built is a
+#'translation of the initial partition by adding this Gaussian noise to the edges of its sub-intervals.
+#'
 #' @param xx  data vector
 #' @param nbr number of breaks for histogram
 #' @param B number of histograms to aggregate

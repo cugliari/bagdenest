@@ -13,7 +13,7 @@
 BagHist = function(xx,grid, B= 10) {
   n = length(xx)
   fin = 0
-  for(i in 1:B)    {
+  for(i in 1:B){
     xb = xx[sample(n,replace=TRUE)]
     nbr=bropt(xb)$opt
     hs2=hist(xb,breaks=mybreaks(xb,nbr),plot=F,warn.unused = F)

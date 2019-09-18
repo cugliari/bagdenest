@@ -1,9 +1,9 @@
 #' @title Aggregation of disturbed histograms and estimation error.
 #'
 #' @description This function aggregates disturbed histograms an provides estimation error from the aggregation.
-#' Each histogram is disturbed by adding to each of its estimates an observation of a centered normal variable whose
-#' variance is coeficiant "alpha" which is the pertubation parameter.
-#' For each histogram a simulation of the normal variable is performed.
+#' This function aggregates disturbed histograms.Each histogram is disturbed by adding small random numbers to
+#' the sub-interval edges of the partitions from which they are constructed.These small random numbers are
+#' generated according to a normal law.
 #'
 #' @param xx data vector . this vector makes it possible to build histograms.
 #' @param grid  data vector.this vector makes it possible to provide estimates and estimation errors.

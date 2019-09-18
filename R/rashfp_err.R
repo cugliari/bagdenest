@@ -1,5 +1,5 @@
 #' @title density estimation and estimation error whith rashfp_err.
-#' @description this function builds several Frequency polygons by disturbing the partition
+#' @description this function builds several frequency polygons in disturbing by translation an initial partition
 #'              of the histogram with a Gaussian noise and then aggregates them.
 #' @param xx data vector
 #' @param grid grid for density evaluation

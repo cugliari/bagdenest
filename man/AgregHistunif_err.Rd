@@ -21,6 +21,8 @@ AgregHistunif_err(xx, grid, nbr = 50, B = 10, dobs)
 Estimation of the values of a density function And estimation error.
 }
 \description{
-This function aggregated histograms disturbed.each histogram is disturbed with a uniform variable.
-Thus for each histogram a simulation of this uniform variable is performed.
+This function aggregates disturbed histograms an provides estimation error from the aggregation.
+This function aggregates disturbed histograms.Each histogram is disturbed by adding small random numbers to
+the sub-interval edges of the partitions from which they are constructed.These small random numbers are
+generated according to a uniform law.
 }

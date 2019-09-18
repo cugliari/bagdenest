@@ -21,6 +21,6 @@ AgregHist(xx, grid, nbr = 50, B = 10, alpha = 1)
 Estimation.
 }
 \description{
-This function aggregates disturbed histograms.Each histogram is disturbed by adding to each of its estimates an observation of a centered normal variable
-whose variance is coeficiant "alpha" which is the pertubation parameter.For each histogram a simulation of this normal variable is performed.
+This function aggregates disturbed histograms.Each histogram is disturbed by adding
+small random numbers to the sub-interval edges of the partitions from which they are constructed.
 }

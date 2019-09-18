@@ -23,6 +23,6 @@ rashfp_err(xx, grid, nbr = 50, B = 10, dobs, alpha = 1)
 estimation and estimation error
 }
 \description{
-this function builds several Frequency polygons by disturbing the partition
+this function builds several frequency polygons in disturbing by translation an initial partition
              of the histogram with a Gaussian noise and then aggregates them.
 }

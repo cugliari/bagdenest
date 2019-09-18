@@ -21,6 +21,6 @@ ash_err(xx, aa, nbr, B = 10, dobs)
 prevision and prevision error
 }
 \description{
-This function modifies sets of intervals defined over the partions support of density
- to estimate. Then calculates the average of the histograms estimates built on this transformation.
+this function builds several histograms on partions obtained
+             by non-randomly translating an initial partition.
 }

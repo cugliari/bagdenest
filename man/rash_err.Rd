@@ -21,6 +21,6 @@ rash_err(xx, grid, nbr = 50, B = 10, dobs)
 estimation and estimattion error
 }
 \description{
-this function builds several histograms by disturbing the partition
+this function builds several histograms in disturbing by translation an initial partition
              of the histogram with a Gaussian noise and then aggregates them.
 }

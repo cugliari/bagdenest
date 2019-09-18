@@ -1,7 +1,7 @@
 #' @title Density estimation whit ash_err
 #'
-#' @description  This function modifies sets of intervals defined over the partions support of density
-#'  to estimate. Then calculates the average of the histograms estimates built on this transformation.
+#' @description this function builds several histograms on partions obtained
+#'              by non-randomly translating an initial partition.
 #'
 #' @param xx data vector for histograms construction .
 #' @param aa grid for density evaluation
