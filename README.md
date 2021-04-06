@@ -16,6 +16,10 @@ bootstrap samples of the original data.
 
 -----
 
+![workflow](https://github.com/cugliari/bagdenest/actions/workflows/build.yml/badge.svg)
+
+-----
+
 ### License
 
 This package is free and open source software, licensed under GPL-3.
