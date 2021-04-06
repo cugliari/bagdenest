@@ -14,7 +14,9 @@ classical density estimators such as the histogram, the frequency
 polygon and the kernel density estimators obtained over different
 bootstrap samples of the original data.
 
-![workflow](https://github.com/cugliari/bagdenest/actions/workflows/build.yml/badge.svg)
+![workflow](https://github.com/cugliari/bagdenest/actions/workflows/build.yml/badge.svg)  
+[![cran](https://www.r-pkg.org/badges/version/bagdenest?color=green)](https://cran.r-project.org/package=bagdenest)
+[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 
 -----
 
