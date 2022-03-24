@@ -6,7 +6,6 @@
 #' @param nbr number of breaks for an estimator
 #'
 #' @return  a breaks
-#' @export
 mybreaks = function(x = rnorm(100),nbr)
 {
   mx = min(x)

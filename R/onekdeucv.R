@@ -4,7 +4,6 @@
 #' @param xx data vector  for estimator bulding
 #'
 #' @return estimations
-#' @export
 onekdeucv = function(xx,grid) {
   ks::kde(xx,h=bw.ucv(xx),eval.points=grid)$estimate
 }

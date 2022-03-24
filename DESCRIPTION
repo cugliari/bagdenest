@@ -3,26 +3,23 @@ Type: Package
 Title: Bagging of Density Estimators
 Version: 0.1.0
 Authors@R: c(
-    person("Erwan", "Giry-Fouquet", email = "mbourel@fing.edu.uy",role = c("aut", "cre")
+    person("Mathias", "Bourel", 
+           email = "mbourel@fing.edu.uy", 
+           comment = c(ORCID = "0000-0002-7472-7179"), 
+           role = c("aut")
            ),
-    person("Jairo", "Cugliari", email = "jairo.cuglari@univ-lyon2.fr", role = c("aut")
+    person("Jairo", "Cugliari", 
+           email = "Jairo.Cugliari@univ-lyon2.fr", 
+           comment = c(ORCID = "0000-0001-6779-0084"),
+           role = c("aut", "cre")
            ),
-    person("Youla", "Mohamed", email = "m.youla@yahoo.fr" ,role ="aut")
+    person("Youla", "Mohamed", email = "m.youla@yahoo.fr", role = "aut")
     )
-Maintainer: Jairo Cugliari <Jairo.Cugliari@univ-lyon2.fr>, Youla Mohamed <m.youla@yahoo.fr>
-Description: density estimation by averaging classical density estimators such as 
+Maintainer: Jairo Cugliari <Jairo.Cugliari@univ-lyon2.fr>
+Description: Density estimation by averaging classical density estimators such as 
              the histogram, the frequency polygon and the kernel density estimators
              obtained over different bootstrap samples of the original data.
 License: GPL-3
 Encoding: UTF-8
-LazyData: true
-RoxygenNote: 7.1.1
-Imports: 
-    benchden,
-    caTools,
-    ks,
-    nor1mix,
-    rpart,
-    stats,
-    delt,
-    sm
+RoxygenNote: 7.1.2
+Imports: benchden, ks, nor1mix, sm

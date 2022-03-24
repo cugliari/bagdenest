@@ -14,6 +14,8 @@ BagHist(xx, grid, B = 10)
 \item{B}{number of histograms to aggregate}
 }
 \value{
+density estimated over the grid using bagged histogram
+
 estimation
 }
 \description{

@@ -6,6 +6,7 @@
 #' @param xx data vector for histograms construction .
 #' @param B number of histograms to aggregate
 #' @param grid grid for density evaluation
+#' @return density estimated over the grid using bagged histogram
 #'
 #' @return estimation
 #' @export
@@ -16,7 +17,7 @@ BagHist = function(xx,grid, B= 10) {
   for(i in 1:B){
     xb = xx[sample(n,replace=TRUE)]
     nbr=bropt(xb)$opt
-    hs2=hist(xb,breaks=mybreaks(xb,nbr),plot=F,warn.unused = F)
+    hs2=hist(xb,breaks=mybreaks(xb,nbr),plot=FALSE,warn.unused = FALSE)
     fin= fin + predict_hist(hs2,grid)
   }
   fin/B
