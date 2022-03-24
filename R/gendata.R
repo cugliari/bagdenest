@@ -9,6 +9,9 @@
 #'
 #' @export
 #' @import stats  nor1mix
+#' @examples
+#' gendata(10,100)
+#'
 gendata= function(nummodel = 1, n = 100)
 {
   #NORMALE STANDARD

@@ -18,3 +18,7 @@ the training set, the test set and density values .
 This function provides the Training set, the Test set and density values
 from a distribution law.
 }
+\examples{
+gendata(10,100)
+
+}

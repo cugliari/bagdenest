@@ -2,24 +2,24 @@
 % Please edit documentation in R/baseboot.R
 \name{baseboot}
 \alias{baseboot}
-\title{variability band}
+\title{Variability band}
 \usage{
-baseboot(x, punctual, bunch, conf = c(0.05, 0.95), plot = FALSE)
+baseboot(x, pointwise, bunch, conf = c(0.05, 0.95), plot = FALSE)
 }
 \arguments{
 \item{x}{data vector}
 
-\item{punctual}{aggregation data vector}
+\item{pointwise}{a vector with the pointwise density estimation}
 
-\item{bunch}{estimations matrice}
+\item{bunch}{bootstrap replicated of the estimation density (matrix)}
 
-\item{conf}{confidence threshold vector}
+\item{conf}{confidence quantiles}
 
-\item{plot}{plot validation}
+\item{plot}{logical, make a validation plot}
 }
 \value{
-the lower edge and the upper edge of a variability band
+matrix with lower and upper bounds of the variability band
 }
 \description{
-This function computes a variability band from a set of vectors
+Computation of a variability band using base bootstrap
 }
