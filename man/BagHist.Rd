@@ -2,23 +2,28 @@
 % Please edit documentation in R/BagHist.R
 \name{BagHist}
 \alias{BagHist}
-\title{Density estimation whit BagHist}
+\title{Density Estimation with Bagged Histograms (BagHist)}
 \usage{
 BagHist(xx, grid, B = 10)
 }
 \arguments{
-\item{xx}{data vector for histograms construction .}
+\item{xx}{numeric vector.}
 
-\item{grid}{grid for density evaluation}
+\item{grid}{numeric vector used for evaluation}
 
-\item{B}{number of histograms to aggregate}
+\item{B}{number of bootstrap samples.}
 }
 \value{
-density estimated over the grid using bagged histogram
+numeric vector with the density estimated over the given grid using BagHist
 
 estimation
 }
 \description{
-This function builds histograms from the bootstrap samples.
-Then averages  the estimates provided  by these histograms and computes thes estimation errro.
+Estimate the density of a univariate data vector using BagHist. First,
+obtain bootstrap samples of the input vector data. For each sample, a histogram is
+computed using an optimized number of break points. The BagHist estimation is the mean of the individual histograms.
+}
+\examples{
+x <- rnorm(100)
+BagHist(x, seq(-6, 6, length.out = 100), B = 50)
 }

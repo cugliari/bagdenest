@@ -1,4 +1,4 @@
-#' @title Construction of a variability band with histograms.
+#' @title Construction of a variability band using histograms.
 #'
 #' @description At each step, this function takes a new set of data, builds a
 #'              histogram,predicts and aggregates.

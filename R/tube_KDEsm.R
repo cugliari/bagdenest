@@ -1,4 +1,4 @@
-#' @title  confidence band with kernel density estimators
+#' @title Computes the confidence band using smooth kernel density estimators
 #' @description this function builds a confidence band from the kernel density estimators
 #' @param data ata of test sample and learning  (data$learn and data$test).
 #'             test sample must be sorted  (sort(data$test)).

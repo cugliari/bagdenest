@@ -2,7 +2,7 @@
 % Please edit documentation in R/tube_KDEsm.R
 \name{tube_KDEsm}
 \alias{tube_KDEsm}
-\title{confidence band with kernel density estimators}
+\title{Computes the confidence band using smooth kernel density estimators}
 \usage{
 tube_KDEsm(data)
 }

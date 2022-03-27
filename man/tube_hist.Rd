@@ -2,7 +2,7 @@
 % Please edit documentation in R/tube_hist.R
 \name{tube_hist}
 \alias{tube_hist}
-\title{Construction of a variability band with histograms.}
+\title{Construction of a variability band using histograms.}
 \usage{
 tube_hist(data, nbr = 50, B = 10, conf = c(0.05, 0.95))
 }

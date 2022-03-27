@@ -2,21 +2,27 @@
 % Please edit documentation in R/BagHistfp.R
 \name{BagHistfp}
 \alias{BagHistfp}
-\title{Density estimation whit BagHistfp}
+\title{Density Estimation with Bagged Frequency Polygons (BagHistFP)}
 \usage{
 BagHistfp(xx, grid, B = 10)
 }
 \arguments{
-\item{xx}{data vector for Frequency Folygone construction .}
+\item{xx}{numeric vector.}
 
-\item{grid}{grid for density evaluation}
+\item{grid}{numeric vector used for evaluation}
 
-\item{B}{number of Frequency Folygone to aggregate}
+\item{B}{number of bootstrap samples.}
 }
 \value{
-estimation
+numeric vector with the density estimated over the given grid using BagHistFP
 }
 \description{
-This function builds "Frequency Folygones"  from the bootstrap samples.
-Then averages  the estimates provided  by these estimators .
+Estimate the density of a univariate data vector using BagHistFP. First,
+obtain bootstrap samples of the input vector data. For each sample, a histogram is
+computed using an optimized number of break points. On top of it, a frequency polygon
+is obtained. The BagHistFP estimation is the mean of the individual frequency polygons.
+}
+\examples{
+x <- rnorm(100)
+BagHistfp(x, seq(-6, 6, length.out = 100), B = 50)
 }

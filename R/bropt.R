@@ -1,9 +1,4 @@
-#' Title needed for Hist & RASH
-#'
-#' @param x variable
-#'
-#' @return  a list
-#' @export
+# choose optimal number of classes (breaks)
 bropt=function(x){
   Mgrid <- 2:(5 * floor(sqrt(length(x))))
   J     <- numeric(length(Mgrid))
